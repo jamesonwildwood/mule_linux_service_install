@@ -1,0 +1,51 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides: mule 
+# Required-Start: $local_fs $network $remote_fs
+# Required-Stop: $local_fs $network $remote_fs
+# Default-Start:  2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Mule ESB
+### END INIT INFO
+
+. /lib/lsb/init-functions
+# set Mule server settings here
+if [ -f /etc/mule/mule-dev ]; then
+. /etc/mule/mule-dev
+fi
+
+# Set Mule ENV Variables
+MULE_HOME=/usr/local/mule-dev
+MULE_LIB=$MULE_HOME/lib
+RUN_AS_USER=root
+MULE_ENV=dev
+JAVA_HOME=/usr/local/java/jdk1.7.0_80
+MULE_MAX_MEMORY=2048
+MULE_SECRET_VALUE=MySecretValue
+MULE_MMC_BIND_PORT=7777
+
+# Set JDK related environment
+PATH=$PATH:$JAVA_HOME/bin
+
+# Export environment variables
+export JAVA_HOME MULE_HOME MULE_MAX_MEMORY MULE_SECRET_VALUE MULE_MMC_BIND_PORT MULE_LIB PATH MULE_ENV RUN_AS_USER
+
+case "$1" in
+start)
+echo "Start service mule"
+$MULE_HOME/bin/mule start -M-Dspring.profiles.active=$MULE_ENV -M-DMULE_ENV=$MULE_ENV
+;;
+stop)
+echo "Stop service mule"
+$MULE_HOME/bin/mule stop
+;;
+restart)
+echo "Restart service mule"
+$MULE_HOME/bin/mule restart -M-Dspring.profiles.active=$MULE_ENV -M-DMULE_ENV=$MULE_ENV
+;;
+*)
+echo "Usage: $0 {start|stop|restart}"
+exit 1
+;;
+esac
+
