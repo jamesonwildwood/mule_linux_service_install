@@ -16,7 +16,6 @@ move the symlink
 ## Init.d script
 ```
 Place the etc/init.d/mule-dev script in /etc/init.d/
-<<<<<<< HEAD
 sudo chown root:root mule-dev
 sudo chmod 755 mule-dev
 sudo update-rc.d mule-dev defaults
@@ -27,28 +26,16 @@ Place the etc/mule/mule-dev parameter file in /etc/mule [need to create director
 sudo chown -R root:root /etc/mule/
 sudo chmod 700 /etc/mule
 sudo chmod 600 /etc/mule/mule-dev
-=======
-chown root:root mule-dev
-chmod 755 mule-dev
-Place the etc/mule/mule-dev parameters in /etc/mule [need to create directory]
-chown -R root:root /etc/mule/
->>>>>>> 973f635... adding the mule etc file and adding folder structure.
 ```
 
 Edit the parameter file for the variables that you need.  I suggest also renaming the 
 scripts as appropriate, especially if you have multiple mule instances on the same server. 
 For example mule-qa1 mule-qa2 mule-highvolume
 
-<<<<<<< HEAD
 ## Wrapper.conf
 Notice that the wrapper.conf file has variables in a few places and that these variables 
 are being represented in the init script.  Before you overwrite your wrapper.conf note 
 down any customizations you may have done to the file.  And optionally add them to the 
-=======
-Notice that the wrapper.conf file has variables in a few places and that these variables
-are being represented in the init script.  Before you overwrite your wrapper.conf note
-down any customizations you may have done to the file.  And optionally add them to the
->>>>>>> 973f635... adding the mule etc file and adding folder structure.
 init.d script or the parameter file.  
 
 ```
