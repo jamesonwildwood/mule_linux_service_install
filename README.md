@@ -36,7 +36,8 @@ For example mule-qa1 mule-qa2 mule-highvolume
 Notice that the wrapper.conf file has variables in a few places and that these variables 
 are being represented in the init script.  Before you overwrite your wrapper.conf note 
 down any customizations you may have done to the file.  And optionally add them to the 
-init.d script or the parameter file.  
+init.d script or the parameter file. Also install your license for enterprise before 
+overwriting the wrapper.conf file. Backup your old file first. 
 
 ```
 Wrapper.conf goes in
