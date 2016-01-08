@@ -57,3 +57,21 @@ sudo chown -R mule /usr/local/mule/mule-dev/.mule
 sudo chown -R mule /usr/local/mule/mule-dev/.mule/.agent
 ```
 
+## Commands
+```
+sudo service mule-dev start
+sudo service mule-dev stop
+sudo service mule-dev restart
+```
+Starts, Stops, or Restarts the Service
+
+```
+sudo service mule-dev status
+```
+Displays if the service is running or not
+
+```
+sudo service mule-dev license ~/mule-ee-license.lic
+```
+Installs a license file from the specified location.  Comes in really handy for renewal.
+Note you will likely need to stop the server first to perform this operation. 

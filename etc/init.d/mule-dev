@@ -39,8 +39,12 @@ status)
 echo "Status service mule"
 $MULE_HOME/bin/mule status -M-Dspring.profiles.active=$MULE_ENV -M-DMULE_ENV=$MULE_ENV
 ;;
+license)
+echo "Status service mule"
+$MULE_HOME/bin/mule -installLicense $2
+;;
 *)
-echo "Usage: $0 {start|stop|restart|status}"
+echo "Usage: $0 {start|stop|restart|status|license}”
 exit 1
 ;;
 esac
